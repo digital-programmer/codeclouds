@@ -1,7 +1,7 @@
 {
   "name": "codeclouds",
   "version": "1.0.0",
-  "description": "Geolocation difference App\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C\u001b[D\u001b[D\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[Cistance\u001b[C\u001b[C\u001b[C\u001b[C\u001b[D\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b",
+  "description": "Geolocation difference App",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,8 +9,15 @@
   "author": "Dibya Mohan",
   "license": "ISC",
   "dependencies": {
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^10.0.0",
     "express": "^4.17.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.2",
     "mongoose": "^6.1.5",
-    "passport": "^0.5.2"
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0"
   }
 }

@@ -1,0 +1,56 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-md navbar-light bg-light py-2">
+    <!-- Container wrapper -->
+    <div class="container align-items-center">
+        <!-- Navbar brand -->
+        <a class="navbar-brand me-2" href="/">
+            <span>Place</span>
+        </a>
+
+        <!-- Toggle button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse align-items-center" id="navbarSupportedContent">
+            <!-- Left links -->
+            <ul class="navbar-nav me-auto mt-sm-1 mb-lg-0">
+                <li class="nav-item align-items-center">
+                    <a class="nav-link py-0" href="/">
+                        <%= user.role %>
+                    </a>
+                </li>
+            </ul>
+            <!-- Left links -->
+            <% if (locals.user) { %>
+                <div class="d-flex align-items-center mt-sm-2 mt-md-0">
+                    <span class="me-3">
+                        <%= user.name %>
+                    </span>
+                    <div>
+                        <a href="/users/sign-out" style="margin-left: 10px;">
+                            <span>Logout</span>
+                            <i class="fas fa-sign-out-alt"></i>
+                        </a>
+                    </div>
+
+                </div>
+                <% } else { %>
+                    <div class="d-flex align-items-center mt-sm-2 mt-md-0">
+                        <a class="btn btn-link p-0 me-4 ps-sm-0 me-md-2" href="/users/sign-in">
+                            Login
+                        </a>
+                        <a class="btn btn-primary me-3 ms-3" href="/users/sign-up">
+                            Sign up for free
+                        </a>
+                    </div>
+                    <% } %>
+
+        </div>
+        <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
