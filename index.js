@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require("express");
+const app = express();
 const cookieParser = require('cookie-parser');
 const expressLayouts = require("express-ejs-layouts");
 const flash = require('connect-flash');
@@ -13,7 +14,7 @@ const passportLocal = require("./config/passport-local-strategy");
 const MongoStore = require('connect-mongo');
 const customWare = require("./config/middleware");
 
-
+app.use(express.static(__dirname + '/assets'));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(expressLayouts);
