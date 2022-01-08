@@ -1,0 +1,30 @@
+<div class="container py-4">
+    <div class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5 fw-bold">
+            <div>
+                <%= locals.place ? locals.place : "No place specified" %>
+            </div>
+        </h1>
+    </div>
+
+    <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+            <div class="h-100 p-5 text-white bg-dark rounded-3">
+                <h2>Add a Default Place</h2>
+                <p>Set a place for users to find proximity from their location. <br> Please add a correct city name.</p>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="h-100 p-5 bg-light border rounded-3">
+                <h2>Place Name</h2>
+                <form action="/admin/add-place" method="post">
+                    <input type="text" class="form-control" placeholder="Enter city name.." required>
+                    <button class="btn btn-secondary mt-3" type="submit">Update place</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>
