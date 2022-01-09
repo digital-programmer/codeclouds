@@ -1,0 +1,11 @@
+[0mGET / [36m302[0m 538.305 ms - 72[0m
+[0mGET /users/sign-in [32m200[0m 61.591 ms - 5853[0m
+[0mPOST /users/create-session [36m302[0m 260.150 ms - 46[0m
+[0mGET / [32m200[0m 12.829 ms - 5649[0m
+[0mPOST /user/add-place [32m200[0m 998.864 ms - 81[0m
+[0mGET /users/sign-out [36m302[0m 11.118 ms - 72[0m
+[0mGET /users/sign-in [32m200[0m 10.050 ms - 6261[0m
+[0mGET /users/sign-in [32m200[0m 28.712 ms - 5853[0m
+::1 - - [09/Jan/2022:09:38:41 +0000] "GET /users/sign-in HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36"
+::1 - - [09/Jan/2022:09:38:46 +0000] "POST /users/create-session HTTP/1.1" 302 72 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36"
+::1 - - [09/Jan/2022:09:38:46 +0000] "GET /users/sign-in HTTP/1.1" 200 6264 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36"

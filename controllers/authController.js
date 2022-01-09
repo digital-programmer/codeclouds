@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
-const bcryptSalt = process.env.BCRYPT_SALT;
+const env = require("../config/environment");
+const bcryptSalt = env.bcrypt_salt;
 
 // render signup page
 module.exports.signUp = (req, res) => {

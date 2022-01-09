@@ -1,11 +1,13 @@
-require('dotenv').config()
 const express = require("express");
 const app = express();
+const env = require('./config/environment');
 const cookieParser = require('cookie-parser');
 const expressLayouts = require("express-ejs-layouts");
 const flash = require('connect-flash');
+const logger = require("morgan");
 const db = require("./config/mongoose");
-const port = process.env.PORT;
+const port = 8000;
+const path = require('path');
 
 // used for session cookie
 const session = require('express-session');
@@ -14,10 +16,12 @@ const passportLocal = require("./config/passport-local-strategy");
 const MongoStore = require('connect-mongo');
 const customWare = require("./config/middleware");
 
-app.use(express.static(__dirname + '/assets'));
+app.use(express.static(path.join(__dirname, env.asset_path)));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
+
+app.use(logger(env.morgan.mode, env.morgan.options));
 app.use(expressLayouts);
 
 // extract style and scripts from subpages into the layout
@@ -32,7 +36,7 @@ app.set("views", "./views");
 // mongo store is used to store the session cookie in the db
 app.use(session({
     name: "codeclouds",
-    secret: process.env.SESSION_SECRET_KEY,
+    secret: env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
     cookie: {

@@ -1,5 +1,6 @@
 const request = require("request");
 const City = require('../models/city');
+const env = require("../config/environment");
 
 module.exports.updatePlace = function (req, res) {
     if (!req.isAuthenticated()) {
@@ -10,7 +11,7 @@ module.exports.updatePlace = function (req, res) {
     // if user is admin
     if (req.user.role === 'admin') {
         if (req.xhr) {
-            const API_URL = `http://www.mapquestapi.com/geocoding/v1/address?key=${process.env.API_TOKEN}&location=${place}&maxResults=1`;
+            const API_URL = `http://www.mapquestapi.com/geocoding/v1/address?key=${env.api_token}&location=${place}&maxResults=1`;
             // call geolocation API
             request(API_URL, async function (error, response, body) {
                 if (error) {
