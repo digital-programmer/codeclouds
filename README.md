@@ -1,7 +1,7 @@
 ## A web application to find the proximity of a place from the default location set by admin
 
 ## Short video for working demo - 
-<a href="https://youtu.be/L_ZVKD-bQCk">Youtube Link for App</a>
+<a href="https://youtu.be/L_ZVKD-bQCk" target="_blank">Youtube Link for App</a>
 
 ### For Local Setup -
 
