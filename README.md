@@ -5,7 +5,7 @@
 - Latest node.js stable version should be installed on your system
 - MongoDB should be configured
 
-#### npm install
+### npm install
 
 - Install all the required packages for setting up and running in local environment
 
