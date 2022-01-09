@@ -6,7 +6,7 @@ const expressLayouts = require("express-ejs-layouts");
 const flash = require('connect-flash');
 const logger = require("morgan");
 const db = require("./config/mongoose");
-const port = 8000;
+const port = process.env.PORT || 8000;
 const path = require('path');
 
 // used for session cookie
