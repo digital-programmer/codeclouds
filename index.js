@@ -16,6 +16,7 @@ const customWare = require("./config/middleware");
 
 app.use(express.static(__dirname + '/assets'));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(cookieParser());
 app.use(expressLayouts);
 

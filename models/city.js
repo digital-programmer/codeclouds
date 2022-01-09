@@ -5,6 +5,15 @@ const citySchema = new mongoose.Schema({
         require: true
     },
 
+    lat: {
+        type: Number,
+        require: true
+    },
+
+    lng: {
+        type: Number,
+        require: true
+    },
     // comment belongs to a user
     user: {
         type: mongoose.Schema.Types.ObjectId,

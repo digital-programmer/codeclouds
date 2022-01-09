@@ -7,7 +7,7 @@ module.exports.home = async function (req, res) {
 
     if (req.user.role === "admin") {
         try {
-            const city = await City.findOne({ _id: req.user.id });
+            const city = await City.findOne({ user: req.user._id });
             let placeName = "";
             if (city) {
                 placeName = city["city"];
