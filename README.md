@@ -12,10 +12,12 @@
 ### npm run dev
 
 - Run the project in development mode (using nodemon)
+- Go to localhost:8000 on your browser and the app starts
 
 ### npm start
 
 - Run the project using node
+- Go to localhost:8000 on your browser and the app starts
 
 ### Sign up
 
