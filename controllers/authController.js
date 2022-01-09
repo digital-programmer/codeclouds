@@ -38,6 +38,7 @@ module.exports.create = function (req, res) {
             return;
         }
 
+        // if user not exists, create new user
         if (!user) {
             const hash = await bcrypt.hash(req.body.password, Number(bcryptSalt));
             User.create({ email: req.body.email, password: hash, name: req.body.name, role: req.body.role }, function (err, user) {

@@ -1,6 +1,5 @@
 const request = require("request");
 const City = require('../models/city');
-const User = require('../models/user');
 
 module.exports.findPlace = function (req, res) {
     if (!req.isAuthenticated()) {
@@ -18,6 +17,7 @@ module.exports.findPlace = function (req, res) {
                     returnErrorFromAPICall(res, error);
                 }
                 const answer = JSON.parse(body);
+                // if answer from api is valid
                 if (answer.results) {
                     const locationObj = answer.results[0].locations;
                     if (locationObj.length > 0) {
@@ -41,6 +41,7 @@ module.exports.findPlace = function (req, res) {
                                 })
 
                             } else {
+                                // return city not set
                                 return res.status(404).json({
                                     data: [],
                                     error: "City not set by Admin"
@@ -74,6 +75,7 @@ module.exports.findPlace = function (req, res) {
     }
 }
 
+// error hanlder for api call
 function returnErrorFromAPICall(res, err) {
     console.log(err);
     return res.status(404).json({
@@ -94,7 +96,7 @@ function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
         ;
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     var d = R * c; // Distance in km
-    return d;
+    return Math.round(d); // return the rounded distance
 }
 
 function deg2rad(deg) {

@@ -1,5 +1,5 @@
+// mongodb configuration
 const mongoose = require("mongoose");
-
 mongoose.connect(`mongodb://localhost/${process.env.DB_NAME}`);
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "Error conecting to MongoDB"));

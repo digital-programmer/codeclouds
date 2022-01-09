@@ -2,6 +2,7 @@
     // method to submmitform data from form using AJAX
     let createPlace = function () {
         let newPlaceForm = $('#set-place');
+        // when form is submitted, make an ajax call to server
         newPlaceForm.submit(function (e) {
             e.preventDefault();
             $.ajax({
@@ -9,6 +10,7 @@
                 url: '/admin/add-place',
                 data: newPlaceForm.serialize(),
                 success: function (response) {
+                    // if data is successfully received, set it as default place
                     if (response.data) {
                         setPlaceName(response.data['name']);
                         showSuccessMessage("Place Updated successfully");
@@ -21,17 +23,18 @@
                     console.log(err.responseText);
                 }
             });
+            // clear input fields
             $('#set-place input').val('');
         });
     }
 
-
+    // set city name in browser
     function setPlaceName(name) {
         let placeHolder = $('#place');
         placeHolder.text(name);
     }
 
-
+    // for success notification
     function showSuccessMessage(message) {
         new Noty({
             theme: 'relax',
@@ -43,6 +46,7 @@
         }).show();
     }
 
+    // for error notification
     function showErrorMessage(message) {
         new Noty({
             theme: 'relax',

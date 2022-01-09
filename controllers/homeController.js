@@ -5,6 +5,7 @@ module.exports.home = async function (req, res) {
         return res.redirect("/users/sign-in");
     }
 
+    // if user is admin, redirect to admin page
     if (req.user.role === "admin") {
         try {
             const city = await City.findOne({ user: req.user._id });
@@ -28,6 +29,7 @@ module.exports.home = async function (req, res) {
             })
         }
 
+        // else redirect to user page
     } else {
         return res.render("user_page", {
             title: "User Page",

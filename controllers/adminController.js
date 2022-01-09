@@ -1,6 +1,5 @@
 const request = require("request");
 const City = require('../models/city');
-const User = require('../models/user');
 
 module.exports.updatePlace = function (req, res) {
     if (!req.isAuthenticated()) {
@@ -18,9 +17,11 @@ module.exports.updatePlace = function (req, res) {
                     returnErrorFromAPICall(res, error);
                 }
                 const answer = JSON.parse(body);
+                // if answer from api is valid
                 if (answer.results) {
                     const locationObj = answer.results[0].locations;
                     if (locationObj.length > 0) {
+                        // get the latitude and longitude
                         const { lat, lng } = locationObj[0].displayLatLng;
                         try {
                             // find if a city already exists for admin
@@ -59,6 +60,7 @@ module.exports.updatePlace = function (req, res) {
                 }
             });
         } else {
+            // if req is not xhr, return
             return res.status(404).json({
                 data: {},
                 error: "Acccepting only XHR request"
@@ -73,6 +75,8 @@ module.exports.updatePlace = function (req, res) {
     }
 }
 
+
+// error handler for api calls
 function returnErrorFromAPICall(res, err) {
     console.log(err);
     return res.status(404).json({

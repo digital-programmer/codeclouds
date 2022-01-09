@@ -33,12 +33,14 @@ passport.use(new LocalStrategy(
 ));
 
 
-// serialising the user to decide which key is to be kept in cookies and cookie is send to browser automatically in response
+// serialising the user to decide which key is to be kept in cookies 
+// and cookie is send to browser automatically in response
 passport.serializeUser(function (user, done) {
     done(null, user.id);
 });
 
-// deserialising the user from the key in the cookies when browser makes a request
+// deserialising the user from the key in the cookies 
+// when browser makes a request
 passport.deserializeUser(function (id, done) {
     User.findById(id, function (err, user) {
         if (err) {
@@ -66,7 +68,8 @@ passport.checkAuthentication = function (req, res, next) {
 
 passport.setAuthenticatedUser = function (req, res, next) {
     if (req.isAuthenticated()) {
-        // req.user contains the current user from session cookie and we are sending it to the res.locals for viewing
+        // req.user contains the current user from session cookie 
+        // and we are sending it to the res.locals for viewing
         res.locals.user = req.user;
     }
     return next();

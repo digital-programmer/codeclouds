@@ -14,7 +14,7 @@ const citySchema = new mongoose.Schema({
         type: Number,
         require: true
     },
-    // comment belongs to a user
+    // city name belongs to a user
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'

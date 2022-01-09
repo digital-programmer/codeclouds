@@ -1,9 +1,13 @@
 {
     // method to submmitform data from form using AJAX
     let checkPlace = function () {
+        // form component
         let newPlaceForm = $('#check-place');
+        // get cityname heading
         let setPlaceName = $('#city-name');
+        // get resultsTable
         let resultTable = $('#results');
+        // when form is submitted, make an ajax call to server
         newPlaceForm.submit(function (e) {
             e.preventDefault();
             const placeInput = $('#checkForPlace').val();
@@ -14,11 +18,13 @@
                 url: '/user/add-place',
                 data: newPlaceForm.serialize(),
                 success: function (response) {
+                    // if data is successfully received, add it to table
                     if (response.data) {
+                        // prepare DOM for table
                         const DOM = prepareDOM(response.data);
+                        // set summmary heading 
                         setPlaceName.text(`Showing results for ${placeInput}`);
-                        setPlaceName.val(`Showing results for ${setPlaceName.val()}`);
-
+                        // append result to table
                         resultTable.append(DOM);
                         showSuccessMessage("Place Added successfully");
                     } else {
@@ -32,10 +38,12 @@
                     console.log(err);
                 }
             });
+            // clear input fields
             $('#checkForPlace').val('');
         });
     }
 
+    // prepare data coming from server to display in DOM
     function prepareDOM(arr) {
         const DOMarr = arr.map((element, index) => {
             return `<tr>
@@ -52,6 +60,7 @@
     }
 
 
+    // for success notification
     function showSuccessMessage(message) {
         new Noty({
             theme: 'relax',
@@ -63,6 +72,7 @@
         }).show();
     }
 
+    // for error notification
     function showErrorMessage(message) {
         new Noty({
             theme: 'relax',

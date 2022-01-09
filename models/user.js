@@ -25,5 +25,7 @@ const userSchema = new mongoose.Schema({
     timestamps: true,
 });
 
+// admin can set only one city
+
 const User = mongoose.model('User', userSchema);
 module.exports = User;
