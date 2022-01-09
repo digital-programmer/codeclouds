@@ -1,1 +1,41 @@
-<script src="/js/admin_set_place.js"></script>
+<div class="text-center w-75 mx-auto px-2 py-4">
+    <form action="/user/add-place" method="post" id="check-place">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="checkForPlace" placeholder="Type here.." name="city" required>
+            <label for="checkForPlace">Enter city name</label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Check proximity</button>
+    </form>
+</div>
+<div class="w-75 mx-auto px-2 py-4">
+    <h3 id="city-name">Showing results for &nbsp;-----</h3>
+</div>
+<table class="table w-75 mx-auto">
+    <thead>
+        <tr>
+            <th scope="col">S.no</th>
+            <th scope="col">City</th>
+            <th scope="col">Lat</th>
+            <th scope="col">Lng</th>
+            <th scope="col">Distance (in KM)</th>
+            <th scope="col">Within 100km</th>
+        </tr>
+    </thead>
+    <tbody id="results">
+        <!-- <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+        </tr> -->
+    </tbody>
+</table>
+
+
+
+
+
+
+<script src="/js/user_set_place.js"></script>

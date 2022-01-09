@@ -58,13 +58,18 @@ module.exports.updatePlace = function (req, res) {
                     returnErrorFromAPICall(res, err)
                 }
             });
-            // if not admin, logout and redirect to sign in page
         } else {
-            req.logout();
-            req.flash('error', "Unauthorized access");
-            return res.redirect("/users/sign-in");
+            return res.status(404).json({
+                data: {},
+                error: "Acccepting only XHR request"
+            });
         }
-
+    }
+    // if not admin, logout and redirect to sign in page
+    else {
+        req.logout();
+        req.flash('error', "Unauthorized access");
+        return res.redirect("/users/sign-in");
     }
 }
 

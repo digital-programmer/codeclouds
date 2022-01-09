@@ -1,6 +1,6 @@
 {
     // method to submmitform data from form using AJAX
-    let createPost = function () {
+    let createPlace = function () {
         let newPlaceForm = $('#set-place');
         newPlaceForm.submit(function (e) {
             e.preventDefault();
@@ -54,5 +54,5 @@
         }).show();
     }
 
-    createPost();
+    createPlace();
 }
