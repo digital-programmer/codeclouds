@@ -10,31 +10,17 @@ const accessLogStream = rfs.createStream('access.log', {
     path: logDirectory
 });
 
-const development = {
-    name: "development",
-    asset_path: "./assets",
-    session_cookie_key: "codeclouds",
-    db: "codeclouds_development",
-    bcrypt_salt: 10,
-    api_token: 'iHXhlCwG06NVB1PG0qQqH8GwWxvyAd1q',
-    morgan: {
-        mode: "dev",
-        options: { stream: accessLogStream }
-    }
-}
-
 const production = {
     name: "production",
     asset_path: process.env.CODECLOUD_ASSETS_PATH,
     session_cookie_key: process.env.CODECLOUD_SESSION_SECRET_KEY,
-    db: process.env.CODECLOUD_DB_NAME,
+    db: process.env.CODECLOUD_DB_URL,
     bcrypt_salt: process.env.CODECLOUD_BCRYPT_SALT,
     api_token: process.env.CODECLOUD_API_TOKEN,
     morgan: {
         mode: "combined",
         options: { stream: accessLogStream }
     }
-
 }
 
-module.exports = eval(process.env.CODECLOUD_ENVIRONMENT) == undefined ? development : eval(process.env.CODECLOUD_ENVIRONMENT);
+module.exports = production;

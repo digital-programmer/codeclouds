@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "prod_start": "SET NODE_ENV=production & node index.js"
+    "prod_start": "node index.js"
   },
   "author": "Dibya Mohan",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "connect-flash": "^0.1.1",
     "connect-mongo": "^4.6.0",
     "cookie-parser": "^1.4.6",
+    "dotenv": "^11.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.2",
     "express-ejs-layouts": "^2.5.1",

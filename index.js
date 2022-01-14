@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const env = require('./config/environment');
@@ -35,7 +36,7 @@ app.set("views", "./views");
 
 // mongo store is used to store the session cookie in the db
 app.use(session({
-    name: "codeclouds",
+    name: "codeclouds_sessions",
     secret: env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
@@ -44,7 +45,7 @@ app.use(session({
     },
     store: MongoStore.create(
         {
-            client: db.getClient(),
+            mongoUrl: `${env.db}`,
             autoRemove: 'disabled',
         },
         function (err) {
