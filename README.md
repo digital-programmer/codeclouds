@@ -1,11 +1,14 @@
 ## A web application to find the proximity of a place from the default location set by admin
 
+## Short video for working demo - 
+<a href="https://youtu.be/L_ZVKD-bQCk" target="_blank">Youtube Link for App</a>
+
 ### For Local Setup -
 
 - Latest node.js stable version should be installed on your system
 - MongoDB should be configured
 
-#### npm install
+### npm install
 
 - Install all the required packages for setting up and running in local environment
 
