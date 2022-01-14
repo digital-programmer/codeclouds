@@ -7,6 +7,8 @@
 
 - Latest node.js stable version should be installed on your system
 - MongoDB should be configured
+- NodeJs version - v16.13.1
+- MongoDb version - v5.0.5
 
 ### npm install
 
